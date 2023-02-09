@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration default="false" name=":forge Minecraft Client" factoryName="Application" type="Application">
+        <option name="ALTERNATIVE_JRE_PATH" value="17"></option>
+        <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false"></option>
+        <envs>
+            <env name="FORGE_SPEC" value="2"></env>
+            <env name="MOD_CLASSES" value="mod%%/home/william/Documents/Projects/AntiClientCrasher/forge/build/resources/main:mod%%/home/william/Documents/Projects/AntiClientCrasher/forge/build/classes/java/main:mod%%/home/william/Documents/Projects/AntiClientCrasher/build/resources/main:mod%%/home/william/Documents/Projects/AntiClientCrasher/build/classes/java/main"></env>
+            <env name="MCP_MAPPINGS" value="unimined.stub"></env>
+        </envs>
+        <option name="MAIN_CLASS_NAME" value="cpw.mods.bootstraplauncher.BootstrapLauncher"></option>
+        <module name="AntiClientCrasher.forge.main"></module>
+        <option name="PROGRAM_PARAMETERS" value="--launchTarget forgeclientuserdev --version MOD_DEV --assetIndex 2 --assetsDir /home/william/.gradle/caches/unimined/assets --gameDir . --fml.forgeVersion 44.0.1 --fml.mcVersion 1.19.3 --fml.forgeGroup net.minecraftforge --fml.mcpVersion 20221207.122022 -mixin.config anticlientcrash.mixins.json"></option>
+        <option name="VM_PARAMETERS" value="-Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M -Djava.library.path=/home/william/Documents/Projects/AntiClientCrasher/forge/run/client/natives -Dminecraft.launcher.brand=UniminedDev -Dminecraft.launcher.version=1.0.0 -Djava.net.preferIPv6Addresses=system -p /home/william/.gradle/caches/modules-2/files-2.1/cpw.mods/bootstraplauncher/1.1.2/c546e00443d8432cda6baa1c860346980742628/bootstraplauncher-1.1.2.jar:/home/william/.gradle/caches/modules-2/files-2.1/cpw.mods/securejarhandler/2.1.4/f47e3b9dd860a7b82154b8f90a650ffd0aaa5582/securejarhandler-2.1.4.jar:/home/william/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.3/1f2a432d1212f5c352ae607d7b61dcae20c20af5/asm-commons-9.3.jar:/home/william/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.3/9595bc05510d0bd4b610188b77333fe4851a1975/asm-util-9.3.jar:/home/william/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.3/4b071f211b37c38e0e9f5998550197c8593f6ad8/asm-analysis-9.3.jar:/home/william/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.3/78d2ecd61318b5a58cd04fb237636c0e86b77d97/asm-tree-9.3.jar:/home/william/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.3/8e6300ef51c1d801a7ed62d07cd221aca3a90640/asm-9.3.jar:/home/william/.gradle/caches/modules-2/files-2.1/net.minecraftforge/JarJarFileSystems/0.3.18/7135ecee6129360ccafd5c646873b60ab7099bf0/JarJarFileSystems-0.3.18.jar --add-modules ALL-MODULE-PATH --add-opens java.base/java.util.jar=cpw.mods.securejarhandler --add-opens java.base/java.lang.invoke=cpw.mods.securejarhandler --add-exports java.base/sun.security.util=cpw.mods.securejarhandler --add-exports jdk.naming.dns/com.sun.jndi.dns=java.naming -DlegacyClassPath.file=/home/william/Documents/Projects/AntiClientCrasher/build/unimined/legacy_classpath.txt -DignoreList=bootstraplauncher,securejarhandler,asm-commons,asm-util,asm-analysis,asm-tree,asm,JarJarFileSystems,client-extra,fmlcore,javafmllanguage,lowcodelanguage,mclanguage,forge- -DmergeModules=jna-5.10.0.jar,jna-platform-5.10.0.jar -Dforge.enableGameTest=true"></option>
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/forge/run/client"></option>
+        <method v="2">
+            <option name="Make" enabled="true"></option>
+            <option scriptParameters="" name="Gradle.BeforeRunTask" externalProjectPath="$PROJECT_DIR$/forge" vmOptions="" enabled="true" tasks="preRunClient"></option>
+        </method>
+    </configuration>
+</component>

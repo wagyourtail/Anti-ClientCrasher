@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration default="false" name=":fabric Minecraft Server" factoryName="Application" type="Application">
+        <option name="ALTERNATIVE_JRE_PATH" value="17"></option>
+        <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false"></option>
+        <envs></envs>
+        <option name="MAIN_CLASS_NAME" value="net.fabricmc.loader.impl.launch.knot.KnotServer"></option>
+        <module name="AntiClientCrasher.fabric.main"></module>
+        <option name="PROGRAM_PARAMETERS" value="nogui"></option>
+        <option name="VM_PARAMETERS" value="-Dfabric.development=true -Dfabric.remapClasspathFile=&quot;/home/william/Documents/Projects/AntiClientCrasher/build/unimined/remapClasspath.txt&quot;"></option>
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fabric/run/server"></option>
+        <method v="2">
+            <option name="Make" enabled="true"></option>
+        </method>
+    </configuration>
+</component>

@@ -23,10 +23,10 @@ public class MixinEntitySectionStorage {
             packet.getPower() > 1000 ||
             // too many blocks
             packet.getToBlow().size() > 100_000
-            // too much knockback, the server would cancel the movement anyway since it's > 10
-            || packet.getKnockbackX() > 10 || packet.getKnockbackY() > 10 || packet.getKnockbackZ() > 10
+            // too much knockback
+            || packet.getKnockbackX() > 30_000_000 || packet.getKnockbackY() > 30_000_000 || packet.getKnockbackZ() > 30_000_000
             // knockback can be negative?
-            || packet.getKnockbackX() < -10 || packet.getKnockbackY() < -10 || packet.getKnockbackZ() < -10
+            || packet.getKnockbackX() < -30_000_000 || packet.getKnockbackY() < -30_000_000 || packet.getKnockbackZ() < -30_000_000
         ) {
             Minecraft.getInstance().gui.getChat().addMessage(Component.literal("Warning: the server attempted to crash you. This has been blocked.").withStyle(ChatFormatting.RED));
             info.cancel();

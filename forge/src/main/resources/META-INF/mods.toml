@@ -1,20 +1,20 @@
 modLoader="javafml"
-loaderVersion="[43,)"
-issueTrackerURL="https://github.com/wagyourtail/jsmacros"
-license = "MPL-2.0"
+loaderVersion="[44,)"
+issueTrackerURL="https://github.com/wagyourtail/anticlientcrasher/issues"
+license = "MIT"
 
 [[mods]]
-modId = "jsmacros"
+modId = "anticlientcrasher"
 version = "${version}"
-displayName = "JS Macros"
+displayName = "Anti ClientCrasher"
 authors = "Wagyourtail"
 description = '''
-    Macro Mod for Block Game
+Cancel the effects of the ClientCrasher plugin
 '''
 
-[[dependencies.jsmacros]]
+[[dependencies.anticlientcrasher]]
 modId="minecraft"
 mandatory=true
 versionRange="[1.19.3]"
 ordering="NONE"
-side="BOTH"
+side="CLIENT"

@@ -1,0 +1,17 @@
+archivesBaseName = archivesBaseName + "-FABRIC"
+
+minecraft {
+    fabric {}
+}
+
+dependencies {
+    fabric "net.fabricmc:fabric-loader:${rootProject.loader_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}

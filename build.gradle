@@ -1,19 +1,100 @@
 plugins {
     id 'java'
+    id 'xyz.wagyourtail.unimined' version '0.4.0-SNAPSHOT'
+    id "com.github.johnrengelman.shadow" version "7.1.2" apply false
 }
 
-group 'xyz.wagyourtail'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
+minecraft {
+    runs.off = true
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'xyz.wagyourtail.unimined'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+
+    archivesBaseName = rootProject.archives_base_name
+    version = rootProject.mod_version
+    group = rootProject.maven_group
+
+    repositories {
+        // sponge
+        maven { url "https://repo.spongepowered.org/maven" }
+        // fabric
+        maven { url "https://maven.fabricmc.net" }
+        mavenCentral()
+    }
+
+    dependencies {
+        minecraft "net.minecraft:minecraft:${rootProject.minecraft_version}"
+
+        mappings "net.fabricmc:intermediary:${rootProject.minecraft_version}:v2"
+        mappings "net.minecraft:minecraft:1.19.3:client-mappings"
+
+        implementation "org.spongepowered:mixin:0.8.5"
+    }
+
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release = 17
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 }
 
-test {
-    useJUnitPlatform()
+subprojects {
+    configurations {
+        common
+        shadowCommon
+        compileClasspath.extendsFrom common
+        runtimeClasspath.extendsFrom common
+    }
+
+    dependencies {
+        for (sourceSet in project(":").sourceSets) {
+            if (sourceSet == project(":").sourceSets.test) continue
+            common sourceSet.output
+            shadowCommon sourceSet.output
+        }
+    }
+
+    shadowJar {
+        configurations = [project.configurations.shadowCommon]
+        classifier "dev-shadow"
+    }
+
+    remapJar {
+        inputFile.set shadowJar.archiveFile
+        dependsOn shadowJar
+        classifier null
+    }
+
+    components.java {
+        withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+            skip()
+        }
+    }
+
+    task createDist(type: Copy) {
+        from(new File(project.buildDir, "libs"))
+        into new File(rootProject.rootDir, "dist")
+    }
+
+    build.finalizedBy(createDist)
 }
+
+remapJar {
+    target = "mojmap"
+}
+
+task removeDist(type: Delete) {
+    delete new File(rootProject.rootDir, "dist")
+}
+
+clean.finalizedBy(removeDist)

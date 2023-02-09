@@ -1,0 +1,20 @@
+archivesBaseName = archivesBaseName + "-FORGE"
+
+minecraft {
+    forge {
+        mixinConfig = ["anticlientcrasher.mixins.json"]
+        devFallbackNamespace = "intermediary"
+    }
+}
+
+dependencies {
+    forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("META-INF/mods.toml") {
+        expand "version": project.version
+    }
+}

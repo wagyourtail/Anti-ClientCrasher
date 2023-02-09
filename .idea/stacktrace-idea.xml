@@ -3,10 +3,18 @@
   <component name="StacktraceSettings">
     <option name="folders">
       <set>
+        <option value="$PROJECT_DIR$/fabric/src/main/resources" />
+        <option value="$PROJECT_DIR$/forge/src/main/java" />
+        <option value="$PROJECT_DIR$/forge/src/main/resources" />
         <option value="$PROJECT_DIR$/src/main/java" />
         <option value="$PROJECT_DIR$/src/main/resources" />
         <option value="$PROJECT_DIR$/src/test/java" />
         <option value="$PROJECT_DIR$/src/test/resources" />
+      </set>
+    </option>
+    <option name="packages">
+      <set>
+        <option value="xyz.wagyourtail.acc" />
       </set>
     </option>
   </component>
